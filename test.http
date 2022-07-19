@@ -16,3 +16,19 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/user/62d682b3727ebefe3d856f6c
+
+
+###
+POST http://localhost:3000/order
+Content-Type: application/json
+
+{
+  "basket":[{
+    "id":"1",
+    "quantity":3
+  },{
+    "id":"2",
+    "quantity":1
+  }],
+  "userId":1
+}
