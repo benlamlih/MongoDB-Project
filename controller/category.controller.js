@@ -1,4 +1,4 @@
-const Category = require('../model/category.model');
+const Categories = require('../model/category.model');
 
 /**
  * Récupère les categories
@@ -21,7 +21,7 @@ exports.get = (req, res, next) => {
  * @param {string} req.body informations de la categorie à créer
  */
 exports.create = (req, res) => {
-    let category = new Category();
+    let category = new Categories();
     category.name = req.body.name;
     category.description = req.body.description;
     category.save();
@@ -32,6 +32,13 @@ exports.create = (req, res) => {
  * Supprime une categorie par son id
  * @param {string} req.params.id id de la categorie à supprimer
  */
-exports.delete = (req, res, next) => {
-
+exports.delete = async (req, res, next) => {
+    let category = await Categories.findOne({ _id: req.params.id });
+    if (category) {
+        category.delete();
+        Product.deleteOne({ category_id: req.params._id });
+        res.status(200).json({ message: "Category deleted" });
+    } else {
+        res.status(404).json({ message: "Category not found" });
+    } 
 };
