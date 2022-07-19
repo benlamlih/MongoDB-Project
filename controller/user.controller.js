@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-//const User = require('../model/user.model');
+const User = require('../model/user.model');
 
 /**
  * Récupère tous les user 
@@ -23,7 +23,11 @@ exports.getOne = (req, res) => {
 exports.signup = (req, res) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
-            /* TODO : créer l'utilisateur, avec le hash du password */
+            let user = new User();
+            user.email = req.body.email;
+            user.password = hash;
+            user.save();
+            res.status(200).json({ user });
         })
         .catch((error) => {
             res.status(500).json({ error: error });
@@ -62,6 +66,12 @@ exports.update = (req, res, next) => {
  * Supprime un user par son id
  * @param {string} req.params.id id du user à supprimer
  */
-exports.delete = (req, res) => {
-
+exports.delete = async (req, res) => {
+    let user = await User.findOne({_id: req.params.id });
+    if (user) {
+        user.delete();
+        res.status(200).json({message : "user deleted"});
+    } else {
+        res.status(404).json({ message: "user not found" });
+    }
 };

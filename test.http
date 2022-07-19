@@ -6,3 +6,13 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/category/62d674dbf885ed2f334496d4
+
+
+###
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{ "email": "test@gmail.com", "password": "test" }
+
+###
+DELETE http://localhost:3000/user/62d682b3727ebefe3d856f6c
