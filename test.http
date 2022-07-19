@@ -5,4 +5,4 @@ Content-Type: application/json
 { "name": "Disk", "description": "test"}
 
 ###
-DELETE http://localhost:3000/category/62d672b4de0e97c33f809cf3
+DELETE http://localhost:3000/category/62d674dbf885ed2f334496d4

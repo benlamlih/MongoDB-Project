@@ -1,4 +1,5 @@
 const Categories = require('../model/category.model');
+const Product = require('../model/product.model');
 
 /**
  * Récupère les categories
