@@ -1,5 +1,4 @@
-//const Comment = require('../model/category.model');
-
+const Category = require('../model/category.model');
 
 /**
  * Récupère les categories
@@ -22,7 +21,11 @@ exports.get = (req, res, next) => {
  * @param {string} req.body informations de la categorie à créer
  */
 exports.create = (req, res) => {
-
+    let category = new Category();
+    category.name = req.body.name;
+    category.description = req.body.description;
+    category.save();
+    res.status(200).json({ category });
 };
 
 /**
