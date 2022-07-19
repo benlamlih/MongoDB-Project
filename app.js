@@ -4,10 +4,10 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-const userRoutes = require('./routes/user.routes');
-const postsRoutes = require('./routes/posts.routes');
-const commentRoutes = require('./routes/comment.routes');
-
+const userRoutes = require('./route/user.routes');
+const categoryRoutes = require('./route/category.routes');
+const productRoutes = require('./route/product.routes');
+const orderRoutes = require('./route/order.routes');
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -21,7 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/user', userRoutes);
-app.use('/posts', postsRoutes);
-app.use('/comment', commentRoutes);
+app.use('/category', categoryRoutes);
+app.use('/product', productRoutes);
+app.use('/order', orderRoutes);
 
 module.exports = app;

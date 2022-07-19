@@ -1,4 +1,4 @@
-const Comment = require('../model/category.model.js');
+//const Comment = require('../model/category.model');
 
 
 /**
@@ -13,7 +13,7 @@ exports.getAll = (req, res, next) => {
  * Récupère une categorie par son id
  * @param {string} req.params.id id du categorie à récupérer
  */
-exports.getOne = (req, res, next) => {
+exports.get = (req, res, next) => {
 
 };
 

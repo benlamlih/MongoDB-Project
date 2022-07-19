@@ -1,10 +1,10 @@
-const Posts = require('../model/product.model.js');
+//const Posts = require('../model/product.model');
 
 
 /**
  * Récupère tous les produits 
  */
-exports.getAllPosts = (req, res) => {
+exports.getAll = (req, res) => {
 
 };
 
@@ -12,7 +12,7 @@ exports.getAllPosts = (req, res) => {
  * Récupère un produit par son id
  * @param {string} req.params.id id du produit à récupérer
  */
-exports.getOnePosts = (req, res) => {
+exports.get = (req, res) => {
 
 };
 
@@ -20,7 +20,7 @@ exports.getOnePosts = (req, res) => {
  * Crée un nouveau produit
  * @param {string} req.body informations du produit à créer
  */
-exports.createOnePosts = (req, res) => {
+exports.create = (req, res) => {
 
 };
 
@@ -29,7 +29,7 @@ exports.createOnePosts = (req, res) => {
  * @param {string} req.params.id id du produit à modifier
  * @param {string} req.body informations du produit à modifier
  */
-exports.updateOnePosts = (req, res, next) => {
+exports.update = (req, res, next) => {
 
 
 };
@@ -38,6 +38,6 @@ exports.updateOnePosts = (req, res, next) => {
  * Supprime un produit par son id
  * @param {string} req.params.id id du produit à supprimer
  */
-exports.deleteOnePosts = (req, res, next) => {
+exports.delete = (req, res, next) => {
 
 };

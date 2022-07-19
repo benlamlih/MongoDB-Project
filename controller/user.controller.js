@@ -1,12 +1,10 @@
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const { unsubscribe } = require('../app');
-const User = require('../model/userM');
+//const User = require('../model/user.model');
 
 /**
  * Récupère tous les user 
  */
-exports.getAllUser = (req, res) => {
+exports.getAll = (req, res) => {
 
 };
 
@@ -14,7 +12,7 @@ exports.getAllUser = (req, res) => {
  * Récupère un user par son id
  * @param {string} req.params.id id du user à récupérer
  */
-exports.getOneUser = (req, res) => {
+exports.getOne = (req, res) => {
 
 };
 
@@ -56,7 +54,7 @@ exports.login = (req, res, next) => {
  * @param {string} req.params.id id du user à modifier
  * @param {string} req.body informations du user à modifier
  */
-exports.updateOneUser = (req, res, next) => {
+exports.update = (req, res, next) => {
 
 };
 
@@ -64,6 +62,6 @@ exports.updateOneUser = (req, res, next) => {
  * Supprime un user par son id
  * @param {string} req.params.id id du user à supprimer
  */
-exports.deleteOneUser = (req, res) => {
+exports.delete = (req, res) => {
 
 };
