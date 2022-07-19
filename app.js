@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const db = require("./model/connexion");
 
 const app = express();
 app.use(express.json());
