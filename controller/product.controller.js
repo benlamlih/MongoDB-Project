@@ -27,6 +27,37 @@ exports.get = async (req, res) => {
 };
 
 /**
+ * Récupère tous les produits dans la category donnée
+ * @param {string} req.params.categoryId id de la categorie
+ */
+exports.getProductByCategoryId = async (req, res) => {
+    let product = await Product.find({categoryId: req.params.categoryId});
+    if (product){
+        res.status(200).json({product});
+    }else{
+        res.status(404).json({message: "Product not found within this category"});
+    }
+}
+
+exports.getProductByPriceRange = async (req, res) => {
+    let minPrice = req.params.minPrice;
+    let maxPrice = req.params.maxPrice;
+    let product = await Product.find({$and:[
+            {
+                price:{$gt: minPrice}
+            },
+            {
+                price:{$lt: maxPrice}
+            }
+        ]})
+    if (product){
+        res.status(200).json({product});
+    }else{
+        res.status(404).json({message: "Product not found within this price range"});
+    }
+}
+
+/**
  * Crée un nouveau produit
  * @param {string} req.body informations du produit à créer
  */
